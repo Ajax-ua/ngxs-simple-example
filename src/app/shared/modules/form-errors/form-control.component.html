@@ -1,0 +1,10 @@
+<div class="input" [class.validate-error]="control.errors && (markAsDirty || control.dirty)">
+  <ng-content></ng-content>
+  <div class="errors">
+    <ng-template ngFor let-error [ngForOf]="errors">
+      <ng-template [ngIf]="hasError(error) && (control.dirty || markAsDirty)">
+        <div [class.show-error]="control.dirty || markAsDirty" class="form-error">{{error.text}}</div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

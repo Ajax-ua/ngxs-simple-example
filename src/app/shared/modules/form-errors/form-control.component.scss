@@ -1,0 +1,17 @@
+//.form-error {
+//    display: none;
+//    color: red;
+//}
+
+//.form-error:first-child {
+//    display: block;
+//}
+
+.form-error{
+    display: none;
+    color: red;
+
+    &.show-error:first-child {
+        display: block;
+    }
+}

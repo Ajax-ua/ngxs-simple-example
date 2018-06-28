@@ -1,0 +1,47 @@
+<div class="form">
+  <form [formGroup]="form" (submit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="label">Email</div>
+      <app-form-control
+        [errors]="errors.email"
+        [markAsDirty]="showErrorsIfSubmitted"
+        [control]="emailGroup">
+        <input formControlName="email">
+      </app-form-control>
+
+      <div class="tip">Your email address will remain private</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Password</div>
+      <app-form-control
+        [errors]="errors.password"
+        [markAsDirty]="showErrorsIfSubmitted"
+        [control]="passwordGroup">
+        <input type="password" formControlName="password">
+      </app-form-control>
+
+      <div class="tip">Password has to contain one capital letter, one lowercase letter and a number</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Confirm Password</div>
+      <app-form-control
+        [errors]="errors.confirmPassword"
+        [markAsDirty]="showErrorsIfSubmitted"
+        [control]="confirmPasswordGroup">
+        <input type="password" formControlName="confirmPassword">
+      </app-form-control>
+    </div>
+
+    <div class="row button">
+      <button type="submit" [disabled]="!form.valid">
+        Register
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="additional-link">
+  <a [routerLink]="['/', 'login']">Login-></a>
+</div>

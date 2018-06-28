@@ -1,0 +1,43 @@
+<div class="form">
+  <form [formGroup]="form" (submit)="onSubmit(submit)" novalidate>
+    <div class="row">
+      <div class="label">Email</div>
+      <app-form-control
+        [errors]="errors.email"
+        [markAsDirty]="showErrorsIfSubmitted"
+        [control]="emailGroup">
+        <input formControlName="email">
+      </app-form-control>
+    </div>
+
+    <div class="row">
+      <div class="label">Password</div>
+      <app-form-control
+        [errors]="errors.password"
+        [markAsDirty]="showErrorsIfSubmitted"
+        [control]="passwordGroup">
+        <input type="password" formControlName="password">
+      </app-form-control>
+    </div>
+
+    <div class="row">
+      <div class="checkbox">
+        <input id="keep" type="checkbox" [formControl]="keepMeGroup">
+        <label for="keep">Keep me logged in</label>
+      </div>
+    </div>
+
+    <div class="row button">
+      <button type="submit" #submit>
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+
+<!--<div class="additional-link">-->
+  <!--<a [routerLink]="['/signup']">Sign up -></a>-->
+<!--</div>-->
+<div class="additional-link">
+  <a [routerLink]="['/forgot-password']">Lost your password?</a>
+</div>
