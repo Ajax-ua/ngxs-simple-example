@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
-//import { ApplicationService } from './core/services';
+import { ApplicationService } from './core/services';
 
 
 @Component({
@@ -9,18 +9,18 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  //@HostListener('window:resize', ['$event'])
-  //onResize(event) {
-  //  const appWidth = event.target.innerWidth;
-  //  this.appService.updateAppWidth(appWidth);
-  //}
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const appWidth = event.target.innerWidth;
+    //this.appService.updateAppWidth(appWidth);
+  }
 
   constructor (
-    //private appService: ApplicationService,
+    private appService: ApplicationService,
   ) {
   }
 
   ngOnInit() {
-    //this.appService.updateAppWidth(window.innerWidth);
+    this.appService.updateAppWidth(window.innerWidth);
   }
 }

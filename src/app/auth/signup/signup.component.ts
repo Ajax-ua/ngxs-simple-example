@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs/operators';
 
 import { PasswordValidation } from '../../shared/validators/password-validator';
-//import { AuthService } from '../../core/services';
+import { AuthService } from '../../core/services';
 import { UserModel } from '../../core/models';
 import { environment } from '../../../environments/environment';
 
@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
         ],
         updateOn: 'blur',
       }),
-      captcha: new FormControl('', {
+      captcha: new FormControl('true', {
         validators: [Validators.required],
       }),
       password: new FormControl('', {
@@ -74,10 +74,6 @@ export class SignupComponent implements OnInit {
 
   get confirmPasswordGroup() {
     return this.form.get('confirmPassword');
-  }
-
-  recaptchaResponse(event) {
-    this.form.patchValue({captcha: event.response});
   }
 
   onSubmit() {

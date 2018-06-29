@@ -3,16 +3,16 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 import { take } from 'rxjs/operators';
 
-//import {
-//  ConfigService,
-//} from '../services';
+import {
+  ConfigService,
+} from '../services';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigResolver implements Resolve<any> {
   constructor(
-    //private configService: ConfigService,
+    private configService: ConfigService,
   ) {
   }
   

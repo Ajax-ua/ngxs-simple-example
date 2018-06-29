@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-//import { ConfigResolver } from './core/resolvers/config-resolver';
+import { ConfigResolver } from './core/resolvers/config-resolver';
 //import { AppGuard } from './core/guards/app.guard';
 //import { OrganizationListGuard } from './core/guards/organization-list.guard';
 //import { MyProfileResolver } from './core/resolvers/main-resolver';
@@ -10,7 +10,7 @@ const appRoutes: Routes = [
   {
     path: '',
     resolve: {
-      //config: ConfigResolver,
+      config: ConfigResolver,
     },
     children: [
       {
