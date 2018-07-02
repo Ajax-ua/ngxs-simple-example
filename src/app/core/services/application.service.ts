@@ -6,6 +6,10 @@ import { Observable } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { Restangular } from 'ngx-restangular';
+import {Select, Store} from '@ngxs/store';
+
+import {ApplicationState} from '../../ngxs/application/application.state';
+import {UpdateAppWidthAction} from '../../ngxs/application/application.actions';
 
 //import * as appState from '../../ngrx/state/app.state';
 //import * as application from '../../ngrx/application/states';
@@ -29,11 +33,19 @@ export class ApplicationService {
   //isOpenAddEventModal$: Observable<boolean> = this.store.select(applicationGetter.getIsOpenAddEventModal);
 
   //appMetric$: Observable<MetricModel> = this.store.select(applicationGetter.getMetric);
+  
+  
+  @Select(ApplicationState.getAppWidth)
+  appWidth$: Observable<number>;
+  
+  @Select(ApplicationState.getIsDesktop)
+  isDesktop$: Observable<boolean>;
 
   server: string = this.locationStrategy['_platformLocation'].location.origin;
 
   constructor(
     //private store: Store<appState.IAppState>,
+    private store: Store,
     private locationStrategy: LocationStrategy,
     private restangular: Restangular,
     //@Inject(VALIDATION) public validation,
@@ -42,6 +54,7 @@ export class ApplicationService {
 
   updateAppWidth(width) {
     //this.store.dispatch(new applicationActions.UpdateAppWidthAction(width));
+    this.store.dispatch(new UpdateAppWidthAction(width));
   }
   
   showToastr(msg) {

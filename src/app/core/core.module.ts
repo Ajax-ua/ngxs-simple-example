@@ -15,6 +15,7 @@ import { Restangular, RestangularModule } from 'ngx-restangular';
 
 import { SessionService } from './services';
 //import { AppReducers, metaReducers } from '../ngrx';
+import {ApplicationState} from '../ngxs/application/application.state';
 
 import {
   //CustomSerializer,
@@ -99,7 +100,7 @@ const effects: any[] = [
   
   
     NgxsModule.forRoot([
-      //AppState
+      ApplicationState
     ]),
   
     NgxsReduxDevtoolsPluginModule.forRoot({

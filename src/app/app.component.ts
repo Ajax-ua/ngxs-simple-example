@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     const appWidth = event.target.innerWidth;
-    //this.appService.updateAppWidth(appWidth);
+    this.appService.updateAppWidth(appWidth);
   }
 
   constructor (
