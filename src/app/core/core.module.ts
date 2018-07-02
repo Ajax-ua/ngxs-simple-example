@@ -13,10 +13,6 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 //import { EffectsModule } from '@ngrx/effects';
 import { Restangular, RestangularModule } from 'ngx-restangular';
 
-import { SessionService } from './services';
-//import { AppReducers, metaReducers } from '../ngrx';
-import {ApplicationState} from '../ngxs/application/application.state';
-
 import {
   //CustomSerializer,
   RESTANGULAR_CONFIG,
@@ -24,6 +20,13 @@ import {
   RestangularEventTokenAuthFactory,
 } from '../app.config';
 import { environment } from '../../environments/environment';
+
+import { SessionService } from './services';
+//import { AppReducers, metaReducers } from '../ngrx';
+import {ApplicationState} from '../ngxs/application/application.state';
+import {ConfigState} from '../ngxs/config/config.state';
+import {RequestsState} from '../ngxs/requests/requests.state';
+import {ConfigGetState} from '../ngxs/requests/config/config-get/config-get.state';
 
 //import * as requestEffects from '../ngrx/requests/effects';
 //import { ApplicationEffects } from '../ngrx/application/effects';
@@ -100,7 +103,11 @@ const effects: any[] = [
   
   
     NgxsModule.forRoot([
-      ApplicationState
+      ApplicationState,
+      ConfigState,
+  
+      RequestsState,
+      ConfigGetState,
     ]),
   
     NgxsReduxDevtoolsPluginModule.forRoot({

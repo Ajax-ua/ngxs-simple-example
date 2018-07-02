@@ -17,6 +17,6 @@ export class ConfigResolver implements Resolve<any> {
   }
   
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    //return this.configService.getConfig().pipe(take(1));
+    return this.configService.loadConfig().pipe(take(1));
   }
 }

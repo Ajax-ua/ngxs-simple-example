@@ -58,32 +58,32 @@ export class ApplicationService {
   }
   
   showToastr(msg) {
-    if (!msg || msg === '') {
-      return;
-    }
-
-    msg = [].concat(msg);
-    msg = msg.map(message => {
-      return {
-        severity: 'success',
-        summary: '',
-        detail: message,
-      };
-    });
+    //if (!msg || msg === '') {
+    //  return;
+    //}
+    //
+    //msg = [].concat(msg);
+    //msg = msg.map(message => {
+    //  return {
+    //    severity: 'success',
+    //    summary: '',
+    //    detail: message,
+    //  };
+    //});
     
     //this.messageService.addAll(msg);
     alert(msg)
   }
   
   showErrorToastr(msg) {
-    msg = _.uniq([].concat(msg));
-    msg = msg.map(message => {
-      return {
-        severity: 'error',
-        summary: '',
-        detail: message,
-      };
-    });
+    //msg = _.uniq([].concat(msg));
+    //msg = msg.map(message => {
+    //  return {
+    //    severity: 'error',
+    //    summary: '',
+    //    detail: message,
+    //  };
+    //});
     
     //this.messageService.addAll(msg);
     alert(msg)
