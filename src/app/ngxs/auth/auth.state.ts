@@ -1,6 +1,7 @@
 import { Action, Selector, State, StateContext, Store, NgxsOnInit } from '@ngxs/store';
+import { Navigate } from '@ngxs/router-plugin';
 
-import {ApplicationService, AuthService} from '../../core/services';
+import {ApplicationService, AuthService, SessionService} from '../../core/services';
 
 import {ClearTokenAction, LoginAction, LoginFailAction, LoginSuccessAction, SetTokenAction} from './auth.actions';
 import {LoginRequestAction} from '../requests/auth/login/login.actions';
@@ -24,6 +25,7 @@ export class AuthState implements NgxsOnInit {
     private store: Store,
     private applicationService: ApplicationService,
     private authService: AuthService,
+    private sessionService: SessionService,
   ) {}
   
   ngxsOnInit(ctx: StateContext<AuthStateModel>) {
@@ -36,6 +38,12 @@ export class AuthState implements NgxsOnInit {
       token: action.payload,
       isGuest: false,
     });
+    
+    this.sessionService.setSessionToken(action.payload);
+  
+    if (action.redirectUrl) {
+      ctx.dispatch(new Navigate(action.redirectUrl));
+    }
   }
   
   @Action(ClearTokenAction)
@@ -53,9 +61,10 @@ export class AuthState implements NgxsOnInit {
   
   @Action(LoginSuccessAction)
   loginSuccess(ctx: StateContext<AuthStateModel>, action: LoginSuccessAction) {
-    ctx.patchState({
-      token: action.payload.token,
-    });
+    //ctx.patchState({
+    //  token: action.payload.token,
+    //});
+    ctx.dispatch(new SetTokenAction(action.payload.token.id, ['/']));
   }
   
   @Action(LoginFailAction)

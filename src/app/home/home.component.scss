@@ -1,0 +1,24 @@
+:host {
+  .wrapper {
+    .auth-container {
+      max-width: 332px;
+      padding: 27px 15px;
+      margin:0 auto;
+
+      .header {
+        text-align: center;
+        .logo {
+          img {
+            margin-bottom: 50px;
+            height:30px;
+          }
+        }
+      }
+      .content {
+        .form{
+          margin-bottom:31px;
+        }
+      }
+    }
+  }
+}

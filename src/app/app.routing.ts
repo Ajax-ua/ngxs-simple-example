@@ -13,19 +13,20 @@ const appRoutes: Routes = [
       config: ConfigResolver,
     },
     children: [
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
       {
         path: '',
         loadChildren: './auth/auth.module#AuthModule',
       },
-      //{
-      //  path: '',
-      //  loadChildren: './main/main.module#MainModule',
+      {
+        path: '',
+        loadChildren: './home/home.module#HomeModule',
         //canLoad: [AppGuard],
         //canActivate: [AppGuard, OrganizationListGuard],
         //resolve: {
         //  myProfile: MyProfileResolver,
         //},
-      //},
+      },
     ],
   },
 ];

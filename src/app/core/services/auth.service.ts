@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { Restangular } from 'ngx-restangular';
 //import { Store } from '@ngrx/store';
-import {Store} from '@ngxs/store';
+import {Select, Store} from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import {LoginAction} from '../../ngxs/auth/auth.actions';
+import {AuthGetterState} from '../../ngxs/auth/auth-getter.state';
 
 //import { ApplicationService } from './application.service';
 
@@ -24,6 +25,13 @@ export class AuthService {
   //authToken$: Observable<string> = this.store.select(auth.getToken);
   //isGuest$: Observable<boolean> = this.store.select(auth.getIsGuest).pipe(filter((isGuest) => isGuest !== null));
   //isLogined$: Observable<boolean> = this.isGuest$.pipe(map(isGuest => !isGuest));
+  
+  @Select(AuthGetterState.getIsGuest)
+  isGuest$: Observable<boolean>;
+  
+  @Select(AuthGetterState.getToken)
+  authToken$: Observable<string>;
+  
 
 
   constructor(

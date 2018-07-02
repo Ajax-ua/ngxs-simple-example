@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 
 //import { StoreModule } from '@ngrx/store';
 //import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -117,6 +118,7 @@ const effects: any[] = [
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
     }),
+    NgxsRouterPluginModule.forRoot(),
     //StoreModule.forRoot(AppReducers, { metaReducers }),
     //StoreRouterConnectingModule,
     //!environment.production
