@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-//import { AuthService } from '../../core/services';
+import { AuthService } from '../../core/services';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   errors: any;
   
   constructor(
-    //private authService: AuthService,
+    private authService: AuthService,
   ) {
   }
   
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     
-    //this.authService.login(this.form.value);
+    this.authService.login(this.form.value);
   }
   
   setErrors() {

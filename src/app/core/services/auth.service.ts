@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Restangular } from 'ngx-restangular';
 //import { Store } from '@ngrx/store';
+import {Store} from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import {LoginAction} from '../../ngxs/auth/auth.actions';
 
 //import { ApplicationService } from './application.service';
 
@@ -26,6 +28,7 @@ export class AuthService {
 
   constructor(
     //private store: Store<appState.IAppState>,
+    private store: Store,
     private restangular: Restangular,
     //private applicationService: ApplicationService,
   ) {
@@ -51,13 +54,13 @@ export class AuthService {
   //}
   
   login(data): void {
-    //this.store.dispatch(new authActions.LoginAction(data));
+    this.store.dispatch(new LoginAction(data));
   }
   
-  //loginRequest(payload: any) {
-  //  return this.restangular
-  //  .all('users')
-  //  .all('signin')
-  //  .post(payload);
-  //}
+  loginRequest(payload: any) {
+    return this.restangular
+    .all('users')
+    .all('signin')
+    .post(payload);
+  }
 }

@@ -27,6 +27,8 @@ import {ApplicationState} from '../ngxs/application/application.state';
 import {ConfigState} from '../ngxs/config/config.state';
 import {RequestsState} from '../ngxs/requests/requests.state';
 import {ConfigGetState} from '../ngxs/requests/config/config-get/config-get.state';
+import {LoginState} from '../ngxs/requests/auth/login/login.state';
+import {AuthState} from '../ngxs/auth/auth.state';
 
 //import * as requestEffects from '../ngrx/requests/effects';
 //import { ApplicationEffects } from '../ngrx/application/effects';
@@ -105,9 +107,11 @@ const effects: any[] = [
     NgxsModule.forRoot([
       ApplicationState,
       ConfigState,
+      AuthState,
   
       RequestsState,
       ConfigGetState,
+      LoginState,
     ]),
   
     NgxsReduxDevtoolsPluginModule.forRoot({

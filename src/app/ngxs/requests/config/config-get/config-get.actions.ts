@@ -12,4 +12,3 @@ export class ConfigGetRequestFailAction {
   static type = '[Requests] Config Get Fail';
   constructor(public payload: any) {}
 }
-
