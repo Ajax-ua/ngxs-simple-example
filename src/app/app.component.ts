@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
     const appWidth = event.target.innerWidth;
     this.appService.updateAppWidth(appWidth);
   }
+  
+  
 
   constructor (
     private appService: ApplicationService,

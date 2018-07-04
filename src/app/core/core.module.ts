@@ -4,14 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
-
-//import { StoreModule } from '@ngrx/store';
-//import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
-//import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-//import { EffectsModule } from '@ngrx/effects';
 import { Restangular, RestangularModule } from 'ngx-restangular';
 
 import {
@@ -20,83 +12,9 @@ import {
   RestangularEventTokenAuth,
   RestangularEventTokenAuthFactory,
 } from '../app.config';
-import { environment } from '../../environments/environment';
 
 import { SessionService } from './services';
-//import { AppReducers, metaReducers } from '../ngrx';
-import {ApplicationState} from '../ngxs/application/application.state';
-import {ConfigState} from '../ngxs/config/config.state';
-import {RequestsState} from '../ngxs/requests/requests.state';
-import {ConfigGetState} from '../ngxs/requests/config/config-get/config-get.state';
-import {LoginState} from '../ngxs/requests/auth/login/login.state';
-import {AuthState} from '../ngxs/auth/auth.state';
-
-//import * as requestEffects from '../ngrx/requests/effects';
-//import { ApplicationEffects } from '../ngrx/application/effects';
-//import { AuthEffects } from '../ngrx/auth/effects';
-//import { UserEffects } from '../ngrx/user/effects';
-//import { ProfileEffects } from '../ngrx/profile/effects';
-//import { ConfigEffects } from '../ngrx/config/effects';
-//import { OrganizationEffects } from '../ngrx/organization/effects';
-//import { RouterEffects } from '../ngrx/router/effects';
-//import { InviteEffects } from '../ngrx/invite/effects';
-//import { MemberEffects } from '../ngrx/member/effects';
-//import { EventEffects } from '../ngrx/event/effects';
-
-const effects: any[] = [
-  //ApplicationEffects,
-  //AuthEffects,
-  //UserEffects,
-  //ProfileEffects,
-  //ConfigEffects,
-  //OrganizationEffects,
-  //RouterEffects,
-  //InviteEffects,
-  //MemberEffects,
-  //EventEffects,
-  //
-  //requestEffects.LoginEffects,
-  //requestEffects.OrganizationDeleteEffects,
-  //requestEffects.RegistrationEffects,
-  //requestEffects.MembersPostEffects,
-  //requestEffects.InvitesGetEffects,
-  //requestEffects.ResendInviteEffects,
-  //requestEffects.ChangePasswordEffects,
-  //requestEffects.ConfigGetEffects,
-  //requestEffects.UsersPutEffects,
-  //requestEffects.OrganizationGetEffects,
-  //requestEffects.OrganizationsPostEffects,
-  //requestEffects.OrganizationsGetEffects,
-  //requestEffects.ProfilesGetEffects,
-  //requestEffects.UpdateAdminStatusEffects,
-  //requestEffects.ProfilesPostEffects,
-  //requestEffects.UsersGetEffects,
-  //requestEffects.UserGetEffects,
-  //requestEffects.ResetPasswordConfirmEffects,
-  //requestEffects.ResetPasswordRequestEffects,
-  //requestEffects.EventsPostEffects,
-  //requestEffects.EventsGetEffects,
-  //requestEffects.AliasEventGetEffects,
-  //requestEffects.EventGetEffects,
-  //requestEffects.EventDeleteEffects,
-  //requestEffects.PastEventsGetEffects,
-  //requestEffects.NextEventEffects,
-  //requestEffects.EventMembersPostEffects,
-  //requestEffects.ResendMemberEmailEffects,
-  //requestEffects.MembersGetEffects,
-  //requestEffects.MemberEventsGetEffects,
-  //requestEffects.MemberDeleteEffects,
-  //requestEffects.OrganizationMemberDeleteEffects,
-  //requestEffects.OrganizationEventsMemberDeleteEffects,
-  //requestEffects.MemberPatchEffects,
-  //requestEffects.EventMembersGetEffects,
-  //requestEffects.EventMembersCountGetEffects,
-  //requestEffects.ChecklistAuthEffects,
-  //requestEffects.OrganizationMemberGetEffects,
-  //requestEffects.MemberGetEffects,
-  //requestEffects.MetricEffects,
-  //requestEffects.UserOrganizationsGetEffects,
-];
+import {NgxsStoreModule} from '../ngxs/ngxs.module';
 
 @NgModule({
   imports: [
@@ -104,28 +22,7 @@ const effects: any[] = [
     BrowserAnimationsModule,
     HttpClientModule,
   
-  
-    NgxsModule.forRoot([
-      ApplicationState,
-      ConfigState,
-      AuthState,
-  
-      RequestsState,
-      ConfigGetState,
-      LoginState,
-    ]),
-  
-    NgxsReduxDevtoolsPluginModule.forRoot({
-      disabled: environment.production
-    }),
-    NgxsRouterPluginModule.forRoot(),
-    //StoreModule.forRoot(AppReducers, { metaReducers }),
-    //StoreRouterConnectingModule,
-    //!environment.production
-    //  ? StoreDevtoolsModule.instrument({maxAge: 10})
-    //  : [],
-    //EffectsModule.forRoot(effects),
-
+    NgxsStoreModule,
     RestangularModule.forRoot(
       [
         SessionService,

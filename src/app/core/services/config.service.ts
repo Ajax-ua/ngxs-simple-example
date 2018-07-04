@@ -8,9 +8,7 @@ import { skipWhile, map } from 'rxjs/internal/operators';
 import * as _ from 'lodash';
 
 import {LoadConfigAction} from '../../ngxs/config/config.actions';
-import {ConfigState, ConfigStateModel} from '../../ngxs/config/config.state';
 import {ConfigGetterState} from '../../ngxs/config/config-getter.state';
-import {ConfigGetState} from '../../ngxs/requests/config/config-get/config-get.state';
 import {ConfigGetGetterState} from '../../ngxs/requests/config/config-get/config-get-getter.state';
 //import * as appState from '../../ngrx/state/app.state';
 //import * as configState from '../../ngrx/config/states';

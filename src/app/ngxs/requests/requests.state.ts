@@ -2,6 +2,7 @@ import { Action, Selector, State, StateContext, Store, NgxsOnInit } from '@ngxs/
 
 import {ConfigGetState} from './config/config-get/config-get.state';
 import {LoginState} from './auth/login/login.state';
+import {UserGetState} from './user/user-get/user-get.state';
 
 
 export interface RequestsStateModel {
@@ -13,13 +14,11 @@ export interface RequestsStateModel {
   children: [
     ConfigGetState,
     LoginState,
+    UserGetState,
   ],
 })
-export class RequestsState implements NgxsOnInit {
+export class RequestsState {
 
   constructor(private store: Store) {
-  }
-
-  ngxsOnInit(ctx: StateContext<RequestsStateModel>) {
   }
 }

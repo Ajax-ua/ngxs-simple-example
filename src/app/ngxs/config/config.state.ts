@@ -1,6 +1,6 @@
 import { Action, Selector, State, StateContext, Store, NgxsOnInit } from '@ngxs/store';
 
-import {ApplicationService, ConfigService} from '../../core/services';
+import {ApplicationService} from '../../core/services/application.service';
 
 import {LoadConfigAction, LoadConfigFailAction, LoadConfigSuccessAction} from './config.actions';
 import {ConfigGetRequestAction} from '../requests/config/config-get/config-get.actions';

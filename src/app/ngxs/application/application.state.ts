@@ -18,21 +18,6 @@ export class ApplicationState implements NgxsOnInit {
   constructor(private store: Store) {
   }
 
-  @Selector()
-  static getAppWidth(state: ApplicationStateModel): number {
-    return state.appWidth;
-  }
-
-  @Selector()
-  static getIsMobile(state: ApplicationStateModel): boolean {
-    return state.appWidth < 1140;
-  }
-
-  @Selector()
-  static getIsDesktop(state: ApplicationStateModel): boolean {
-    return state.appWidth > 1139;
-  }
-
   ngxsOnInit(ctx: StateContext<ApplicationStateModel>) {
     //ctx.dispatch(new UpdateAppWidthAction());
   }

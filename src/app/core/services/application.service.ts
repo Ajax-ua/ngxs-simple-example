@@ -8,8 +8,8 @@ import * as _ from 'lodash';
 import { Restangular } from 'ngx-restangular';
 import {Select, Store} from '@ngxs/store';
 
-import {ApplicationState} from '../../ngxs/application/application.state';
 import {UpdateAppWidthAction} from '../../ngxs/application/application.actions';
+import {ApplicationGetterState} from '../../ngxs/application/application-getter.state';
 
 //import * as appState from '../../ngrx/state/app.state';
 //import * as application from '../../ngrx/application/states';
@@ -35,10 +35,10 @@ export class ApplicationService {
   //appMetric$: Observable<MetricModel> = this.store.select(applicationGetter.getMetric);
   
   
-  @Select(ApplicationState.getAppWidth)
+  @Select(ApplicationGetterState.getAppWidth)
   appWidth$: Observable<number>;
   
-  @Select(ApplicationState.getIsDesktop)
+  @Select(ApplicationGetterState.getIsDesktop)
   isDesktop$: Observable<boolean>;
 
   server: string = this.locationStrategy['_platformLocation'].location.origin;

@@ -1,6 +1,6 @@
 export class LoginRequestAction {
   static type = '[Requests] Login';
-  constructor(public payload: any) {console.log(333)}
+  constructor(public payload: any) {}
 }
 
 export class LoginRequestSuccessAction {
